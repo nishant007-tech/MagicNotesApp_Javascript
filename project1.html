@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/magicnotes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Magic Notes</title>
+</head>
+
+<body>
+    <div class="navContainer">
+        <ul class="navbar" id="myTopnav">
+            <a class="active">Home</a>
+            <a>About</a>
+            <a class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <div class="search">
+                <form action="">
+                    <input id="searchTxt" type="search" placeholder=" Search...." name="search">
+                    <button type="submit">
+                        <i class="fa fa-search">
+                        </i>
+                </form>
+            </div>
+        </ul>
+    </div>
+    <div class="container">
+        <h1>Welcome To Magic Notes!</h1>
+        <form action="">
+            <b>Add a Note</b>
+            <textarea id="addTxt" placeholder="Write here..."></textarea>
+            <button id="addBtn">Add Note </button>
+        </form>
+
+        <h1>Your Notes</h1>
+        <hr>
+        <div id="notes" class="content">
+        </div>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <b id="note" ></b>
+                <p id="modalP"></p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/magicNotes.js"></script>
+
+</html>

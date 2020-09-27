@@ -1,0 +1,244 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    display: block;
+    overflow: hidden;
+    background-color: rgba(29, 28, 28, 0.801);
+}
+
+ul a {
+    display: block;
+    padding: 14px 16px;
+    float: left;
+    text-align: center;
+    font-size: 17px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 6px 0px 3px rgba(0, 0, 0, 0.473);
+    transition-duration: 0.5s;
+}
+
+ul a.active,a:hover {
+    background-color:rgba(177, 56, 56, 0.788);
+}
+
+.search {
+    float: right;
+    margin: 9px;
+    margin-right: 5%;
+}
+
+.search input {
+    border-radius: 23px;
+    height: 25px;
+    width: 280px;
+    border: none;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.473);
+}
+
+.search input:active {
+    background-color: grey;
+}
+
+.search button {
+    background-color: rgb(177, 56, 56);
+    border: 1px solid black;
+    color: white;
+    padding: 2px;
+    width: 35px;
+    height: 28px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 7px;
+    opacity: 0.7;
+    box-shadow: 4px 4px 4px black;
+    /* bottom shadow is 3px, right shadow is 1st value, and 3rd value is blur */
+}
+
+.search button:hover {
+    opacity: 1.0;
+}
+
+
+/* add notes main container i.e centerlize the content*/
+.container {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    margin-top: 3%;
+}
+
+/* form styling */
+.container form {
+    border: 1px solid gray;
+    padding: 15px;
+    width: 95%;
+    height: 150px;
+    margin-top: 10px;
+    box-shadow: 0 0 7px rgba(90, 83, 83, 0.952);
+    border-radius: 3px;
+}
+/* add note textarea styling */
+.container textarea {
+    display: block;
+    width: 99%;
+    height: 53%;
+    outline:none;
+    font-size: 14px;
+    border: 1px solid grey;;
+    box-shadow: 0px 0px 4px  rgb(177, 56, 56);
+}
+
+/*  add note button */
+.container form button {
+    /* display: inline-block; */
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    border: 2px solid rgb(177, 56, 56);
+    border-radius: 6px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    padding: 6px 18px;
+    box-shadow: 3px 3px 3px rgb(177, 56, 56);
+
+}
+/* hover add note button */
+.container button:hover {
+    color: white;
+    background-color: rgb(177, 56, 56);
+    box-shadow: none;
+}
+/* main content */
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+  /* styling innerContent i.e border margin padding*/
+.container .content .innerContent{
+    border: 1px solid grey;
+    display: grid;
+    padding: 13px;
+    grid-template-columns: 112px;
+    grid-template-rows: 20px 60px 30px;
+    margin: 10px;
+    box-shadow: 0px 0px 7px  rgb(177, 56, 56);
+    text-align: center;
+}
+
+
+.container .content .innerContent p{
+    margin: 0; 
+    padding:4px;
+    overflow:hidden;
+    cursor: pointer;
+}
+.container .content .innerContent p:hover{
+    color: rgba(158, 28, 19, 0.877);
+}
+  /* styling delete button*/
+.container .content .innerContent button{
+    background-color: rgb(177, 56, 56);
+    color: white;
+    border: 2px solid rgb(177, 56, 56);
+    border-radius: 6px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+  /* hover delete button*/
+.container .content .innerContent button:hover{           
+    background-color: white;
+    color: black;
+    box-shadow: 3px 3px 3px rgb(177, 56, 56);
+}
+
+/* 1st let us hide menu bar because we have to show it when screen width is <=600 */
+
+ul a.icon{
+    display: none;
+}
+
+/* media Queries */
+@media screen and (max-width:600px){
+/* :not(:first-child) means select every other element except :first-child or parentElement  */
+    ul a:not(:first-child), ul .search{
+        display: none;
+    }
+    ul a.icon{
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width:600px){
+
+    ul.responsive a.icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    ul.responsive a, ul.responsive .search{
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+}
+
+
+.container .modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(46, 41, 41, 0.705); 
+}
+
+
+
+/* Modal Content */
+.container .modal .modal-content {
+  background-color: #f7f4f4;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid rgba(194, 60, 60, 0.76);
+  width: 60%;
+  box-shadow: 0px 0px 15px  rgb(8, 8, 8);
+  position: relative;
+  animation: mymove;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+/* moving animation of modal */
+@keyframes mymove{
+    from{top:0px; background-color: rgba(20, 20, 20, 0.808);color: white;}
+    to{ top:150px; background-color: rgba(248, 247, 247, 0.993);}
+}
+
+/* The Close Button */
+.container .modal .modal-content .close {
+  color: #c02e2ec5;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  transition-duration: 0.4s;
+}
+
+.container .modal .modal-content .close:hover {
+  color: #000;
+  cursor: pointer;
+}
